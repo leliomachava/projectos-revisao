@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projectos – ADPP Moçambique (revisão)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  :root{--red:#da0007;--orange:#f47b20;--blue:#3b479d;--green:#4f8a2b;--row:#f7f7f7;--line:#e3e3e3;--ink:#222;--muted:#9a9a9a}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Source Sans 3","Myriad Pro",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;font-size:16px}
+  a{color:inherit}
+  .review{background:#fff4c2;border-bottom:1px solid #e9d27a;padding:8px 20px;font-size:14px}
+  .review .in{max-width:1200px;margin:0 auto}
+  .review .tag{display:inline-block;background:#222;color:#fff;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border-radius:3px;margin-right:6px;font-weight:700}
+  .review details{display:inline}
+  .review summary{display:inline;cursor:pointer;text-decoration:underline;margin-left:6px}
+  .review ol{margin:6px 0 2px;padding-left:20px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;height:76px;padding:0 20px;background:#fff}
+  .logo{display:block;text-decoration:none}
+  .logo img{display:block;height:48px;width:auto}
+  .mainnav{display:flex;align-items:center;gap:42px}
+  .mainnav a{text-decoration:none;color:var(--muted);font-size:15px}
+  .mainnav a.on{color:var(--red)}
+  .mainnav .flag svg{display:block;width:15px;height:10px}
+  .mainnav .search svg{display:block;width:22px;height:22px}
+  .sectorbar{position:sticky;top:0;z-index:10;background:var(--red);height:52px;display:flex;align-items:center;gap:26px;padding:0 12px;overflow-x:auto}
+  .sectorbar a{display:flex;align-items:center;gap:7px;color:#fff;text-decoration:none;font-size:15px;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent}
+  .sectorbar a[aria-current="page"]{border-bottom-color:#fff;font-weight:600}
+  .sectorbar svg{width:16px;height:16px;fill:#fff;flex:none}
+  main{max-width:816px;margin:0 auto;padding:12px 0 60px}
+  section.sector{scroll-margin-top:60px;padding-top:8px}
+  section.sector + section.sector{margin-top:36px}
+  h2{color:var(--red);font-size:28px;font-weight:700;margin:12px 0 20px;padding-bottom:10px;border-bottom:1px solid #e6e6e6;line-height:1.3}
+  .intro{margin:0 0 16px;color:#333}
+  .acc{border:1px solid var(--line);border-bottom:0}
+  .cathead{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 26px 0 18px;min-height:56px;color:#fff;font:inherit;font-size:15px;border:0;text-align:left;border-bottom:1px solid rgba(255,255,255,.35)}
+  .cathead.orange{background:var(--orange)}.cathead.blue{background:var(--blue)}.cathead.green{background:var(--green)}
+  button.cathead{cursor:pointer}
+  .row{display:flex;align-items:center;gap:10px;width:100%;min-height:56px;padding:10px 26px 10px 18px;background:var(--row);border:0;border-bottom:1px solid var(--line);font:inherit;font-size:15px;color:var(--ink);text-align:left;cursor:pointer}
+  .row:hover{background:#f0f0f0}
+  .row .t{flex:1}
+  .chev{width:10px;height:10px;border-right:1.4px solid currentColor;border-bottom:1.4px solid currentColor;transform:rotate(45deg);margin:-5px 2px 0;flex:none;transition:transform .2s;opacity:.8}
+  [aria-expanded="true"] > .chev{transform:rotate(225deg);margin-top:5px}
+  .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+  .badge.chk{background:#fde7c8;color:#8a4a00}.badge.inc{background:#f9d6d5;color:#8f1d1a}
+  .body{padding:22px 18px 18px;border-bottom:1px solid var(--line);background:#fff;font-size:15px}
+  .body p{margin:0 0 12px;text-align:justify;hyphens:auto}
+  .body ul{margin:0 0 12px;padding-left:22px}
+  .photo{height:220px;margin:12px 0 16px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600}
+  section[data-col="orange"] .photo{background:#cf8638}section[data-col="blue"] .photo{background:#6871b5}section[data-col="green"] .photo{background:#7ea35d}
+  .ficha{margin-top:16px}.ficha .f{margin:0 0 4px;text-align:left}
+  .note{padding:10px 12px;border-left:4px solid;margin:0 0 16px;font-size:14px}
+  .note.chk{background:#fff6e8;border-color:#e59a2b}.note.inc{background:#fdeeee;border-color:#cf2e2e}
+  .actions{display:flex;gap:10px;align-items:center;margin-top:18px;padding-top:14px;border-top:1px dashed var(--line)}
+  .actions button{font:inherit;font-size:14px;padding:7px 12px;border:1px solid #c9c9c9;background:#fff;border-radius:3px;cursor:pointer}
+  .msg{font-size:14px;color:#666}
+  footer{max-width:816px;margin:0 auto;padding:0 0 40px;color:#888;font-size:13px}
+  @media (max-width:860px){main,footer{padding-left:16px;padding-right:16px}.mainnav{gap:18px}.mainnav a.hide-sm{display:none}}
+  @media (max-width:600px){.mainnav a:not(.on):not(.search){display:none}h2{font-size:24px}.photo{height:160px}}
+</style>
+</head>
+<body>
+<div class="review" role="note"><div class="in"><span class="tag">Versão de revisão</span>Página de revisão interna – ainda não publicada no website.
+  <details><summary>Como rever (42 projectos; 23 com pontos a confirmar)</summary>
+  <ol><li>Escolha o sector na barra vermelha e abra o seu projecto.</li><li>Leia a descrição e a ficha (nome completo, localização, parceiros, período).</li><li>Se o projecto tiver a etiqueta <em>A confirmar</em> ou <em>Falta informação</em>, responda à nota em destaque.</li><li>Use «Copiar texto desta ficha», cole o texto numa mensagem, corrija-o e envie-o ao Gabinete de Comunicação.</li></ol></details></div></div>
+<header>
+  <div class="topbar">
+    <a class="logo" href="https://www.adpp-mozambique.org/"><img src="data:image/png;base64,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" alt="ADPP Moçambique" width="116" height="48"></a>
+    <nav class="mainnav" aria-label="Menu principal">
+      <a class="flag hide-sm" href="https://www.adpp-mozambique.org/" aria-label="English"><svg viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="7"/></svg></a>
+      <a class="hide-sm" href="https://www.adpp-mozambique.org/">Quem somos</a>
+      <a class="hide-sm" href="https://www.adpp-mozambique.org/">O Que Fazemos</a>
+      <a class="on" href="#">Projectos</a>
+      <a class="hide-sm" href="https://www.adpp-mozambique.org/">Resultados</a>
+      <a class="hide-sm" href="https://www.adpp-mozambique.org/">Mais</a>
+      <a class="search" href="https://www.adpp-mozambique.org/" aria-label="Pesquisar"><svg viewBox="0 0 24 24" fill="none" stroke="#da0007" stroke-width="2.6"><circle cx="10" cy="10" r="7"/><path d="M15.5 15.5L22 22" stroke-linecap="round"/></svg></a>
+    </nav>
+  </div>
+</header>
+<nav class="sectorbar" aria-label="Sectores"><a href="#educacao" data-s="educacao"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v4L12 21l7-3.8v-4L12 17l-7-3.8z"/></svg><span>Educação</span></a><a href="#saude" data-s="saude"><svg viewBox="0 0 24 24"><path d="M9 3h6v3h5a2 2 0 012 2v11a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5V3zm2 2v1h2V5h-2zm0 5v3H8v2h3v3h2v-3h3v-2h-3v-3h-2z"/></svg><span>Saúde</span></a><a href="#agricultura" data-s="agricultura"><svg viewBox="0 0 24 24"><path d="M5 4h7l2 5h3V6h2v3h1a2 2 0 012 2v4h-2.2a3.5 3.5 0 00-6.6 0H10.9A4.5 4.5 0 002 16V9a2 2 0 012-2h1V4zm2 2v3h5.3l-1.2-3H7zm-.5 7a3.5 3.5 0 110 7 3.5 3.5 0 010-7zm0 2a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM17.5 16a2.5 2.5 0 110 5 2.5 2.5 0 010-5z"/></svg><span>Agricultura</span></a><a href="#ajuda-humanitaria" data-s="ajuda-humanitaria"><svg viewBox="0 0 24 24"><path d="M12 2.5c1.6-1.6 4.4-.9 4.9 1.3.3 1.3-.3 2.5-1.2 3.4L12 10.8 8.3 7.2C7.4 6.3 6.8 5.1 7.1 3.8 7.6 1.6 10.4.9 12 2.5zM2 13h4l5 2h4a1.5 1.5 0 010 3h-5v1h6l5-4a1.7 1.7 0 012.2 2.5L17 22H2v-9z"/></svg><span>Ajuda humanitária</span></a></nav>
+<main>
+<section class="sector" id="sec-educacao" data-col="blue"><h2>Educação</h2><div class="acc"><div class="cat collapsible"><button class="cathead blue" aria-expanded="false"><span class="t">INSTITUIÇÕES DE ENSINO</span><span class="chev"></span></button><div class="catbody" hidden><div class="proj" id="p14">
+  <button class="row" aria-expanded="false"><span class="t">Escolas de Professores do Futuro (EPF)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>A ADPP gere 11 Escolas de Professores do Futuro, que formam professores para o ensino primário, especialmente para as zonas rurais. Desde 1993, as EPF formaram 26.503 professores, dos quais 12.531 mulheres. Em 2025, graduaram 395 professores, dos quais 201 mulheres.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>A formação dura três anos e assenta na gestão participativa: as decisões sobre a escola são tomadas em reunião geral com os estudantes. Os formandos organizam-se em Grupos Nucleares, pequenos grupos acompanhados por um professor, que promovem o apoio mútuo e o acompanhamento individual. As EPF usam a Doutrina de Métodos Modernos (DmM), com, em média, um computador com acesso à internet para cada dois formandos.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Escolas de Professores do Futuro (EPF)</p><p class="f"><strong>Parceiros:</strong> Ministério da Educação e Cultura</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p15">
+  <button class="row" aria-expanded="false"><span class="t">Escolas Primárias e Secundárias Comunitárias</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>A ADPP gere 3 escolas primárias e secundárias comunitárias.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Escolas Comunitárias da ADPP</p><p class="f"><strong>Parceiros:</strong> Ministério da Educação e Cultura</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p16">
+  <button class="row" aria-expanded="false"><span class="t">Institutos Politécnicos</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>A ADPP gere dois Institutos Politécnicos, em Nhamatanda (Sofala) e em Nacala (Nampula), com cursos de nível médio em Agricultura e Construção. A formação combina uma base teórica sólida com prática intensiva e estágios em empresas locais, preparando os estudantes para o mercado de trabalho.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Institutos Politécnicos da ADPP (IP Nhamatanda e IP Nacala)</p><p class="f"><strong>Localização:</strong> Província de Sofala (Nhamatanda) e Província de Nampula (Nacala)</p><p class="f"><strong>Parceiros:</strong> Ministério da Educação e Cultura; projectos em curso com a União Europeia, CINOP e HAMK</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p17">
+  <button class="row" aria-expanded="false"><span class="t">Instituto Superior de Educação e Tecnologia (ISET One World)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O ISET One World oferece cursos de licenciatura e mestrado em Pedagogia, Educação Comunitária e Educação Ambiental, nas modalidades presencial e à distância. A instituição foi distinguida com o Selo de Excelência do Ministério do Ensino Superior.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Os estudantes dos cursos presenciais gerem a escola juntamente com os professores, e a investigação, as viagens e a prática fora da instituição fazem parte do programa. Até 2025, o ISET graduou 1.314 licenciados e 24 mestres.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Instituto Superior de Educação e Tecnologia – ISET One World</p><p class="f"><strong>Localização:</strong> Changalane, distrito de Namaacha, Província de Maputo</p><p class="f"><strong>Parceiros:</strong> Ministério da Educação e Cultura; Ministério dos Negócios Estrangeiros da Finlândia / JAMK (projecto TIPOTE)</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></div><div class="cat collapsible"><button class="cathead blue" aria-expanded="false"><span class="t">PROJECTOS DE EDUCAÇÃO</span><span class="chev"></span></button><div class="catbody" hidden><div class="proj" id="p1">
+  <button class="row" aria-expanded="false"><span class="t">EmpowerED Nampula</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: Dezembro de 2028 (folha) ou 2029 (Short Description).</div>
+    <p>O projecto EmpowerED tem como objectivo melhorar a gestão escolar e as competências pedagógicas dos professores para aumentar o rendimento dos alunos. Procura também criar um ambiente escolar seguro e inclusivo, com atenção à protecção das raparigas e das crianças com deficiência, e reter os alunos em risco de abandono escolar.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão a revitalização dos conselhos de escola, o combate ao abuso sexual, ao bullying e a outras formas de violência na escola, a alfabetização de adultos e a formação em competências para a vida e empreendedorismo para jovens. O projecto inclui educação sobre alterações climáticas, um programa de aprendizagem acelerada para alunos atrasados e a formação de professores em educação inclusiva, em alinhamento com a Estratégia Nacional de Educação Inclusiva. As famílias e as rádios locais são mobilizadas para promover a educação, a protecção da criança e a igualdade de género. O projecto abrange 89 escolas primárias.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> EmpowerED</p><p class="f"><strong>Localização:</strong> Província de Nampula (distritos de Angoche, Meconta e Liúpo)</p><p class="f"><strong>Parceiros:</strong> Save the Children, com financiamento da NORAD, SONY e TOFI</p><p class="f"><strong>Período:</strong> 2024 a Dezembro de 2028</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p2">
+  <button class="row" aria-expanded="false"><span class="t">Girls Get Equal – As Raparigas Alcançam a Igualdade (Chiúre)</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: Maio de 2029 (folha) ou Dezembro de 2029 (Short Description).</div>
+    <p>Neste projecto, a ADPP é responsável pela componente de Empoderamento Económico da Juventude. O objectivo é capacitar adolescentes e jovens, sobretudo raparigas, através de formação em empreendedorismo, literacia financeira, gestão de cooperativas e formação profissional, para que criem meios de subsistência sustentáveis.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>A formação dura dois meses de teoria e um mês de prática, seguidos de estágio com artesãos, empresas e ONG locais e de três meses de acompanhamento. Os jovens recebem formação em agricultura adaptada ao clima e em tecnologias amigas do ambiente, e os grupos seleccionados em concursos de planos de negócio recebem kits de arranque. Dos 2.400 beneficiários, 400 serão organizados em 10 grupos de juventude, a legalizar como cooperativas. Em 2025, 349 mulheres jovens foram formadas em empreendedorismo, literacia financeira e competências para a vida.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Girls Get Equal – Youth Eco Empowerment (GGE)</p><p class="f"><strong>Localização:</strong> Província de Cabo Delgado (distrito de Chiúre)</p><p class="f"><strong>Parceiros:</strong> Plan International (líder do consórcio) e TUGIBIZ, com financiamento da NORAD</p><p class="f"><strong>Período:</strong> 2025 a Maio de 2029</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p3">
+  <button class="row" aria-expanded="false"><span class="t">Educação em Emergência – Cabo Delgado</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto tem como objectivo reintegrar na aprendizagem crianças que ficaram fora da escola por causa das deslocações provocadas pelo conflito. Para isso, usa a Educação Não-Formal e o Programa de Educação Acelerada, e reforça a qualidade do ensino, a protecção e o apoio psicossocial nas escolas, reduzindo o risco de abandono, trabalho infantil e casamento prematuro.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão:</p>
+<ul><li>aulas de recuperação e de Educação Acelerada para 5.000 crianças fora da escola;</li><li>formação de 100 professores voluntários em aprendizagem acelerada e pedagogia inclusiva;</li><li>formação de 100 professores do ensino formal e de 27 conselhos de escola em educação sensível a crises, protecção da criança e apoio psicossocial;</li><li>construção de 30 Espaços Temporários de Aprendizagem e de 30 latrinas com pontos de lavagem das mãos, adaptados a raparigas e a crianças com deficiência;</li><li>apoio em saúde mental e apoio psicossocial nas escolas e distribuição de material escolar.</li></ul>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Integrated Emergency Response for Conflict-Affected Communities in Cabo Delgado (DPP-EiE)</p><p class="f"><strong>Localização:</strong> Província de Cabo Delgado (distritos de Mocímboa da Praia – Sede e Diaca – e Mecúfi – Sede e Murrébuè)</p><p class="f"><strong>Parceiros:</strong> Comissão Europeia (DG ECHO), através de consórcio liderado pela Johanniter, em coordenação com a Plan International</p><p class="f"><strong>Período:</strong> até Dezembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p4">
+  <button class="row" aria-expanded="false"><span class="t">Masunzo – Escolas Primárias de Namacurra</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a grafia do nome: Masunzo, Mansunzo ou Mazunso.</div>
+    <p>O projecto visa melhorar a inclusão e a qualidade do ensino primário em 15 escolas primárias de Namacurra, apoiando os alunos, em especial as raparigas e as crianças com deficiência, na aquisição de competências de leitura, escrita e cálculo da 1.ª à 6.ª classe. Procura ainda melhorar a equidade, o sucesso escolar e a gestão das escolas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão a sensibilização de pais e encarregados de educação contra o abandono escolar, a formação de professores, direcções e alunos em direitos humanos e da criança, e a capacitação dos conselhos de escola. O projecto cria clubes de género e educação inclusiva, constrói rampas e casas de banho inclusivas, garante água potável e canais de denúncia de abusos, e distribui kits de higiene às raparigas e material compensatório a crianças desfavorecidas. Beneficia 5.300 alunos e 71 professores.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Improving Teaching Quality, Inclusion and Community Engagement in Primary School Education in Zambezia Province</p><p class="f"><strong>Localização:</strong> Província da Zambézia (distrito de Namacurra)</p><p class="f"><strong>Parceiros:</strong> Ministério dos Negócios Estrangeiros da Finlândia e UFF Finlândia</p><p class="f"><strong>Período:</strong> Janeiro de 2025 a Dezembro de 2028</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p5">
+  <button class="row" aria-expanded="false"><span class="t">Professores em Crise – Namasunsiya Wathima (Zambézia)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto visa fortalecer a resiliência do sistema educativo em zonas frequentemente afectadas por desastres naturais. Promove a integração, a retenção, a progressão na carreira e o bem-estar psicossocial dos professores em contexto de crise.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Em 2025, o projecto formou 900 professores de 60 escolas primárias, abrangendo cerca de 48.000 alunos. A formação incidiu sobre metodologias de ensino, preparação e resposta a desastres naturais, apoio psicossocial aos alunos e adaptação às mudanças climáticas. Foram ainda formados 320 estudantes dos Institutos de Formação de Professores de Macuse e Nicoadala, em educação inclusiva e ensino em situações de desastre, e 60 Comités Escolares de Gestão de Desastres Naturais.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Reforçando a Resiliência e o Bem-Estar dos Professores em Áreas Propensas a Desastres Naturais em Moçambique</p><p class="f"><strong>Localização:</strong> Província da Zambézia (distritos de Namacurra, Mocuba e Nicoadala)</p><p class="f"><strong>Parceiros:</strong> União Europeia / Expertise France</p><p class="f"><strong>Período:</strong> até Novembro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p6">
+  <button class="row" aria-expanded="false"><span class="t">Cidadania Activa – Mulheres, Paz e Segurança</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: Dezembro de 2027 (Short Description) ou Dezembro de 2028 (folha).</div>
+    <p>O projecto promove a igualdade de género, a paz e a segurança, empoderando mulheres e raparigas e envolvendo homens, rapazes e instituições locais em contextos de conflito e pós-conflito, com foco na prevenção da violência baseada no género e na promoção dos direitos humanos. A ADPP implementa o projecto na Província de Sofala, a partir da EPF e do Instituto Politécnico de Nhamatanda.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão campanhas de sensibilização sobre género, diálogos comunitários e inter-religiosos, o envolvimento de homens e rapazes, a criação de clubes de raparigas e a formação de Organizações da Sociedade Civil e Comunitárias de Base para conceber e gerir microprojectos. O projecto cria também redes provinciais de mulheres e espaços de denúncia e aconselhamento.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Active Citizenship – Women, Peace and Security</p><p class="f"><strong>Localização:</strong> Província de Sofala (EPF e Instituto Politécnico de Nhamatanda)</p><p class="f"><strong>Parceiros:</strong> IMD (líder do consórcio), com financiamento da União Europeia; LEMUSICA, PROMURA e CISP</p><p class="f"><strong>Período:</strong> Janeiro de 2025 a Dezembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p7">
+  <button class="row" aria-expanded="false"><span class="t">VecraMoz – Formação Profissional e Agricultura Resiliente ao Clima</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto promove a excelência vocacional na agricultura resiliente ao clima, dotando os jovens de competências de qualidade e ajustadas ao mercado, que apoiem o emprego e a progressão na carreira. Reforça também a capacidade dos formadores nas duas escolas profissionais da ADPP e a colaboração entre actores públicos e privados da formação profissional.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão a revisão dos módulos e materiais de formação, a formação de jovens em práticas agrícolas sustentáveis e inovadoras e a criação de laboratórios com tecnologia verde para agricultura e pecuária nas duas escolas.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Vocational Excellence in Climate Resilient Agriculture in Mozambique (VecraMoz)</p><p class="f"><strong>Localização:</strong> Institutos Politécnicos de Nhamatanda (Sofala) e Nacala (Nampula)</p><p class="f"><strong>Parceiros:</strong> CINOP (líder do consórcio), com financiamento da União Europeia; Young Africa e HAMK</p><p class="f"><strong>Período:</strong> Janeiro de 2025 a Dezembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p8">
+  <button class="row" aria-expanded="false"><span class="t">Promover a Educação Inclusiva e a Igualdade de Género</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto reforça a capacidade das Escolas de Professores do Futuro em educação inclusiva e cria nas escolas primárias condições para reter as raparigas, em especial as raparigas com deficiência, através de clubes de inclusão de género. Beneficia 12 escolas primárias, onde alunos da 4.ª à 6.ª classe recebem formação em inclusão de género e deficiência.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão a formação de 120 professores, 50 formadores e 36 promotores, programas de rádio comunitária, visitas às famílias e concursos de poesia, pintura e redação. As EPF organizam dois Dias Abertos por ano. O projecto atribui 8 bolsas a jovens com deficiência para o curso de formação de professores nas EPF de Nhamatanda e Chimoio, 60% das quais a mulheres.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Promoting Inclusive Education and Gender Equality</p><p class="f"><strong>Localização:</strong> Província de Sofala (Beira, Búzi, Dondo, Gorongosa e Nhamatanda) e Província de Manica (Cidade de Chimoio)</p><p class="f"><strong>Parceiros:</strong> Light for the World</p><p class="f"><strong>Período:</strong> Maio de 2025 a Dezembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p9">
+  <button class="row" aria-expanded="false"><span class="t">Empoderamento de Mulheres e Raparigas (Maputo)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto oferece a mulheres e raparigas formação prática em costura, agricultura, culinária, cosmetologia e empreendedorismo, para que criem actividades geradoras de rendimento. Apoia também o regresso das raparigas à escola e, nas escolas secundárias, promove o ensino digital. Pais, líderes comunitários e grupos de homens e rapazes são mobilizados para apoiar as mulheres e raparigas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>O projecto beneficia mais de 9.000 mulheres e raparigas. Em 2025, 1.111 mulheres tiveram acesso a microfinanças, 245 foram formadas em práticas agrícolas resilientes e 455 crianças foram reintegradas no ensino secundário.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Empowering Women and Girls</p><p class="f"><strong>Localização:</strong> Província de Maputo (distritos da Manhiça e Marracuene)</p><p class="f"><strong>Parceiros:</strong> Commonwealth of Learning (COL)</p><p class="f"><strong>Período:</strong> até Julho de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p10">
+  <button class="row" aria-expanded="false"><span class="t">Nilikaneka – Escolas Primárias em Mocuba</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>Projecto de apoio ao ensino primário em 10 escolas primárias do distrito de Mocuba, que abrangem 16.500 alunos.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Nilikaneka – Primary Schools in Mocuba</p><p class="f"><strong>Localização:</strong> Província da Zambézia (distrito de Mocuba)</p><p class="f"><strong>Parceiros:</strong> Ministério dos Negócios Estrangeiros da Finlândia</p><p class="f"><strong>Período:</strong> até Dezembro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p11">
+  <button class="row" aria-expanded="false"><span class="t">DECENT – Institutos Politécnicos de Nacala e Nhamatanda</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: Dezembro de 2027 (Short Description) ou Dezembro de 2028 (folha).</div>
+    <p>O projecto visa melhorar a qualidade do ensino técnico-profissional e a sua ligação ao mercado de trabalho, promovendo a empregabilidade dos jovens e uma transição mais justa e inclusiva para o emprego.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão o desenvolvimento conjunto de cursos curtos de Desenvolvimento Profissional Contínuo, a formação de formadores, a produção e adaptação de materiais e a integração da pedagogia digital para reduzir as disparidades geográficas.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Erasmus+ DECENT</p><p class="f"><strong>Localização:</strong> Institutos Politécnicos de Nacala (Nampula) e Nhamatanda (Sofala)</p><p class="f"><strong>Parceiros:</strong> HAMK (líder do consórcio), com financiamento da União Europeia (Erasmus+)</p><p class="f"><strong>Período:</strong> Janeiro de 2026 a Dezembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p12">
+  <button class="row" aria-expanded="false"><span class="t">TIPOTE – ISET One World</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>Projecto de reforço do equilíbrio entre teoria e prática na formação de professores, implementado no ISET One World.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Equilíbrio Teoria-Prática na Formação de Professores (TIPOTE)</p><p class="f"><strong>Localização:</strong> ISET One World, Changalane, distrito de Namaacha, Província de Maputo</p><p class="f"><strong>Parceiros:</strong> Ministério dos Negócios Estrangeiros da Finlândia / JAMK</p><p class="f"><strong>Período:</strong> até Agosto de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p13">
+  <button class="row" aria-expanded="false"><span class="t">Cursos Curtos do Instituto Politécnico de Nacala</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>Cursos de desenvolvimento de competências de curta duração, centrados em competências práticas e empreendedoras que permitem aos participantes gerar rendimento e melhorar a sua resiliência.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Short Courses IP Nacala</p><p class="f"><strong>Localização:</strong> Província de Nampula (Nacala)</p><p class="f"><strong>Parceiros:</strong> WWF</p><p class="f"><strong>Período:</strong> até Agosto de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></div></div></section>
+<section class="sector" id="sec-saude" data-col="orange"><h2>Saúde</h2><div class="acc"><div class="cat collapsible"><button class="cathead orange" aria-expanded="false"><span class="t">HIV / SIDA</span><span class="chev"></span></button><div class="catbody" hidden><div class="proj" id="p18">
+  <button class="row" aria-expanded="false"><span class="t">Catalyze – Nampula</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: a folha de financiamento indica 2026; o Short Description indica Setembro de 2027.</div>
+    <p>O projecto Catalyze tem como objectivo aumentar a disponibilidade, o acesso, a aceitação e a qualidade dos serviços de HIV e Tuberculose, através de abordagens inovadoras lideradas pela comunidade. O projecto identifica e resolve barreiras sociais e de acesso aos serviços de saúde, com prioridade para a adesão à prevenção e a retenção no tratamento do HIV e da TB.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão sessões educativas de grande público, aconselhamento individual sobre o tratamento do HIV e da TB e diálogos comunitários de apoio às pessoas infectadas e afectadas. O projecto reforça ainda a capacidade institucional de cinco Organizações Comunitárias de Base na gestão de subvenções e na gestão administrativa, financeira e de recursos humanos. A implementação abrange 30 Unidades Sanitárias, com 60 activistas comunitários (dois por Unidade Sanitária).</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Innovative Community-led Solutions to Catalyse Epidemic Control in Mozambique – «Catalyse»</p><p class="f"><strong>Localização:</strong> Província de Nampula (distritos de Nampula, Rapale, Nacala-Porto, Mossuril, Ilha de Moçambique, Monapo, Ribaué e Nacala-a-Velha)</p><p class="f"><strong>Parceiros:</strong> CDC, no âmbito do PEPFAR</p><p class="f"><strong>Período:</strong> Setembro de 2023 a Setembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p19">
+  <button class="row" aria-expanded="false"><span class="t">THRIVE – Florescer (Manica)</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: Julho de 2029 (folha de financiamento) ou 2028 (Short Description).</div>
+    <p>O projecto THRIVE tem como objectivo melhorar a prevenção do HIV, da hepatite B e da sífilis, o diagnóstico precoce, a adesão ao tratamento e a supressão viral entre mulheres grávidas e lactantes, crianças e adolescentes. O foco principal é a prevenção da transmissão vertical, o diagnóstico infantil precoce e a retenção nos cuidados e no tratamento.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>O projecto liga a comunidade às Unidades Sanitárias através de mobilização comunitária, rastreio de risco, encaminhamento para testagem, acompanhamento domiciliário, apoio à adesão e busca de pessoas que faltaram às consultas. É implementado em 6 Unidades Sanitárias e 12 escolas, e prevê alcançar 15.182 mulheres grávidas e lactantes, 19.734 crianças e 25.649 adolescentes dos 10 aos 19 anos, dos quais 4.560 participarão em clubes e espaços seguros.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Expansion of Integrated Community Interventions for the Prevention, Early Diagnosis, and Treatment of HIV in Children, Adolescents, and Pregnant and Breastfeeding Women</p><p class="f"><strong>Localização:</strong> Província de Manica (distritos de Gondola e Manica)</p><p class="f"><strong>Parceiros:</strong> ViiV Healthcare Positive Action</p><p class="f"><strong>Período:</strong> até Julho de 2029</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p20">
+  <button class="row" aria-expanded="false"><span class="t">Homens que Inspiram – Maputo</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto Homens que Inspiram tem como objectivo reduzir novas infecções por HIV e promover a saúde sexual e reprodutiva entre adolescentes e jovens dos 15 aos 24 anos, com especial atenção a rapazes e homens jovens em maior risco.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Educadores de pares («Campeões Masculinos»), mobilizados em escolas, barbearias, igrejas, mesquitas e locais de trabalho, conduzem diálogos sobre HIV, masculinidade, normas de género e saúde sexual, distribuem kits de autotestagem e encaminham casos positivos para as Unidades Sanitárias. O projecto cria 96 clubes Homens que Inspiram, que também promovem a poupança e o crédito, e organiza campanhas de testagem integrada em escolas secundárias e campanhas mensais «Futebol para a Saúde». Inclui ainda grupos de apoio (TRIOs) para pessoas que testam positivo e a divulgação da plataforma OneImpact via WhatsApp.</p>
+<p>O projecto envolve 1.440 membros de clubes, 50 educadores de pares e 30 líderes comunitários, em colaboração com 3 escolas secundárias, os serviços SAAJ e o Serviço Distrital de Saúde, Mulher e Acção Social (SDSMAS).</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Expand evidence-based approaches to provide community-led solutions for combination HIV prevention among adolescents and youth (15–24)</p><p class="f"><strong>Localização:</strong> Província de Maputo (distrito da Matola)</p><p class="f"><strong>Parceiros:</strong> ViiV Healthcare</p><p class="f"><strong>Período:</strong> até Novembro de 2028</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p21">
+  <button class="row" aria-expanded="false"><span class="t">HOPE Cabo Delgado</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar o período: financiamento garantido até Setembro de 2026; o ano Outubro 2026 – Setembro 2027 está a 70%.</div>
+    <p>O projecto HOPE Cabo Delgado aplica a estratégia comunitária de testagem de casos índice. O objectivo é encontrar as pessoas que vivem com HIV e ainda não conhecem o seu estado, para que iniciem de imediato o tratamento e alcancem a supressão viral. O projecto apoia também as Unidades Sanitárias na busca de pessoas que abandonaram o tratamento, para que sejam reintegradas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>A meta para 12 meses é testar 34.909 familiares (parceiros sexuais e filhos) de pessoas já diagnosticadas com HIV. Em 2025, o projecto alcançou 13.194 pessoas vivendo com HIV e seus conviventes, através de uma abordagem familiar com aconselhamento, testagem e apoio ao autocuidado. A implementação é feita em estreita colaboração com a Fundação Ariel Glaser e os serviços distritais de saúde.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> HOPE Cabo Delgado</p><p class="f"><strong>Localização:</strong> Província de Cabo Delgado (distritos de Pemba, Chiúre e Ancuabe)</p><p class="f"><strong>Parceiros:</strong> Fundação Ariel Glaser contra o HIV Pediátrico, com financiamento do CDC</p><p class="f"><strong>Período:</strong> parceria desde 2015, com contratos anuais</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p22">
+  <button class="row" aria-expanded="false"><span class="t">TCE Maputo (Viva+)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>No projecto Viva+, raparigas adolescentes e mulheres jovens lideram espaços seguros de aprendizagem e diálogo, com informação sobre HIV e Saúde e Direitos Sexuais e Reprodutivos, e promovem o uso dos serviços de saúde para adolescentes e jovens. O projecto abrange 103.000 raparigas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> TCE Maputo (Viva+)</p><p class="f"><strong>Localização:</strong> Província de Maputo</p><p class="f"><strong>Parceiros:</strong> Fundação para o Desenvolvimento da Comunidade (FDC) / Fundo Global</p><p class="f"><strong>Período:</strong> até Dezembro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p23">
+  <button class="row" aria-expanded="false"><span class="t">Tsogolo Tsicana («Go Girls Go») – Tete</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>No projecto Tsogolo Tsicana, raparigas adolescentes e mulheres jovens lideram espaços seguros de aprendizagem e diálogo sobre HIV e Saúde e Direitos Sexuais e Reprodutivos. As jovens organizam-se em Clubes de Mães que Inspiram e em Grupos de Poupança, que lhes dão acesso a pequenos empréstimos para iniciar actividades geradoras de rendimento. O projecto abrange 24.000 raparigas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Em 2025, os projectos Tsogolo Tsicana e Viva+ alcançaram, em conjunto, 16.445 jovens com informação sobre HIV e Saúde e Direitos Sexuais e Reprodutivos.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Tsogolo Tsicana («Go Girls Go»)</p><p class="f"><strong>Localização:</strong> Província de Tete</p><p class="f"><strong>Parceiros:</strong> Governo da Flandres</p><p class="f"><strong>Período:</strong> até Janeiro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p24">
+  <button class="row" aria-expanded="false"><span class="t">KUSHINGA III – Manica</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>No projecto Kushinga, pessoas vivendo com HIV dinamizam Diálogos Comunitários e Grupos de Apoio à Adesão (Trios), que promovem a solidariedade, a auto-estima e a permanência no tratamento. Em 2025, 1.124 pessoas integradas nos Trios aderiram a Grupos de Poupança e Crédito, e 80% alcançaram a supressão viral.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> KUSHINGA III</p><p class="f"><strong>Localização:</strong> Província de Manica</p><p class="f"><strong>Parceiros:</strong> ViiV Healthcare</p><p class="f"><strong>Período:</strong> até Abril de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p25">
+  <button class="row" aria-expanded="false"><span class="t">Saúde sem Barreiras – Maputo</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto Saúde sem Barreiras é um projecto-piloto que visa reduzir o estigma e a discriminação relacionados com o HIV e a Tuberculose. Para isso, promove práticas de atendimento mais humanizadas e inclusivas nas Unidades Sanitárias, em articulação com a Monitoria Liderada pela Comunidade.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Saúde sem Barreiras</p><p class="f"><strong>Localização:</strong> Província de Maputo (3 Unidades Sanitárias)</p><p class="f"><strong>Parceiros:</strong> ViiV Healthcare Positive Action</p><p class="f"><strong>Período:</strong> até Dezembro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></div><div class="cat collapsible"><button class="cathead orange" aria-expanded="false"><span class="t">Tuberculose</span><span class="chev"></span></button><div class="catbody" hidden><div class="proj" id="p26">
+  <button class="row" aria-expanded="false"><span class="t">TB Matola</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>No projecto TB Matola, activistas e líderes comunitários divulgam informação correcta sobre a Tuberculose, identificam sinais e sintomas e acompanham cada pessoa até à cura. O projecto abrange 350.000 pessoas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Em 2025, 33.192 pessoas receberam mensagens sobre prevenção e tratamento e 2.219 foram ligadas aos cuidados e tratamento, o que corresponde a 29% dos casos da província. Das 1.838 crianças elegíveis, 1.623 iniciaram o Tratamento Preventivo da TB, com distribuição ao domicílio para facilitar o acesso e a adesão.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> TC TB – Matola</p><p class="f"><strong>Localização:</strong> Província de Maputo (Matola)</p><p class="f"><strong>Parceiros:</strong> Centro de Colaboração em Saúde (CCS) / Fundo Global</p><p class="f"><strong>Período:</strong> até Dezembro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p27">
+  <button class="row" aria-expanded="false"><span class="t">OneImpact TB Eco Voice – Zambézia</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a designação oficial do parceiro (a folha de financiamento indica «ST Challenge Facility R13»).</div>
+    <p>O projecto usa a plataforma digital OneImpact para que pessoas afectadas pela Tuberculose e membros da comunidade comuniquem as barreiras que encontram no acesso ao diagnóstico e ao tratamento. Desde 2024, a OneImpact envolveu 16.693 pessoas, que reportaram 5.540 barreiras; 74% foram resolvidas, o que agilizou o diagnóstico, o acesso e a adesão ao tratamento.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> OneImpact TB Eco Voice</p><p class="f"><strong>Localização:</strong> Província da Zambézia</p><p class="f"><strong>Parceiros:</strong> Stop TB Partnership – Challenge Facility (Ronda 13)</p><p class="f"><strong>Período:</strong> até Junho de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></div><div class="cat collapsible"><button class="cathead orange" aria-expanded="false"><span class="t">Malária</span><span class="chev"></span></button><div class="catbody" hidden><div class="proj" id="p28">
+  <button class="row" aria-expanded="false"><span class="t">Programa de Controlo da Malária em Niassa e Nampula</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O programa combina a distribuição de redes mosquiteiras com acções comunitárias de prevenção: diálogos comunitários, visitas domiciliárias e sessões educativas conduzidas por voluntários e líderes comunitários e religiosos. O programa abrange cerca de 5 milhões de pessoas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Em 2025, foram distribuídas 3.041.402 redes mosquiteiras em 22 distritos de Nampula, beneficiando 6.979.282 pessoas. Participaram 5.194 voluntários e 1.336 líderes comunitários, e 228 escolas envolveram os alunos na promoção de práticas de prevenção.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Programa de Controlo da Malária em Niassa e Nampula</p><p class="f"><strong>Localização:</strong> Províncias de Niassa e Nampula</p><p class="f"><strong>Parceiros:</strong> Visão Mundial / Fundo Global</p><p class="f"><strong>Período:</strong> até Dezembro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p29">
+  <button class="row" aria-expanded="false"><span class="t">Prevenção da Malária – CQSM (Niassa)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto administra a Quimioprevenção Sazonal da Malária a crianças dos 3 aos 59 meses. Em 2025, mais de 545.000 crianças receberam o tratamento preventivo em 16 distritos do Niassa.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Prevenção da Malária – CQSM</p><p class="f"><strong>Localização:</strong> Província do Niassa (16 distritos)</p><p class="f"><strong>Parceiros:</strong> Visão Mundial / Fundo Global</p><p class="f"><strong>Período:</strong> até Dezembro de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></div><div class="cat collapsible"><button class="cathead orange" aria-expanded="false"><span class="t">Nutrição</span><span class="chev"></span></button><div class="catbody" hidden><div class="proj" id="p30">
+  <button class="row" aria-expanded="false"><span class="t">Nutrição Vida – Yolha Okumi (Nampula)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O projecto Nutrição Vida tem como objectivo reduzir a desnutrição crónica em mulheres grávidas e lactantes e em crianças menores de 2 anos, e melhorar a saúde materno-infantil. Para isso, reforça as capacidades comunitárias no rastreio nutricional, na educação alimentar e no encaminhamento de casos de desnutrição para as Unidades Sanitárias. Inspirado no projecto Transform Nutrition, apoia o Pacote de Intervenções de Nutrição (PIN) do Ministério da Saúde.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Os Agentes Polivalentes de Saúde (APS) e os voluntários fazem o rastreio nutricional, a monitoria do crescimento e a educação nutricional materno-infantil. O projecto prevê alcançar 58.348 mulheres grávidas e lactantes e 27.539 crianças menores de 2 anos. Inclui a formação de 1.800 APS e voluntários e de 560 líderes comunitários, e a melhoria de 783 sítios de nutrição.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Nutrition Life – Yolha Okumi</p><p class="f"><strong>Localização:</strong> Província de Nampula (distritos de Angoche e Mogovolas)</p><p class="f"><strong>Parceiros:</strong> PRO Initiative (GlobalGiving)</p><p class="f"><strong>Período:</strong> Dezembro de 2025 a Dezembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p31">
+  <button class="row" aria-expanded="false"><span class="t">EpiC – Saúde Materno-Infantil, Nutrição e Imunização (Zambézia)</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: Setembro de 2027 (folha) ou Junho de 2027 / Fevereiro de 2027 (Short Description).</div>
+    <p>O EpiC Zambézia é um projecto liderado pela comunidade que contribui para a melhoria da saúde materna, neonatal e infantil, da nutrição e da imunização, reforçando a ligação entre as Unidades Sanitárias e as comunidades. O projecto combina educação para a saúde, mentoria dos Agentes Polivalentes de Saúde (APS), capacitação de actores locais e participação comunitária.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão a formação de 107 mentores de APS, 60 mentoras de mães adolescentes e jovens e 648 líderes comunitários e religiosos, e o apoio a 1.085 APS, aos seus 6.510 voluntários e a 1.360 parteiras tradicionais. O projecto cria Clubes de Jovens Mães e Clubes de Pais, promove hortas familiares e identifica crianças sem vacinas ou com vacinação incompleta.</p>
+<p>Uma componente de resposta a surtos e vigilância epidemiológica abrange 90 Unidades Sanitárias em seis distritos (Mopeia, Mocuba, Nicoadala, Morrumbala, Molumbo e Milange). Nela, 270 promotores de saúde fazem visitas domiciliárias, diálogos comunitários e feiras de saúde sobre prevenção de doenças infecciosas, água, saneamento e higiene.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> EpiC – Global Health Security / EpiC MNCH</p><p class="f"><strong>Localização:</strong> Província da Zambézia (12 distritos)</p><p class="f"><strong>Parceiros:</strong> FHI 360 / Departamento de Estado dos EUA</p><p class="f"><strong>Período:</strong> até Setembro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></div></div></section>
+<section class="sector" id="sec-agricultura" data-col="green"><h2>Agricultura</h2><div class="acc"><div class="proj" id="p32">
+  <button class="row" aria-expanded="false"><span class="t">Farmers&#x27; Clubs Mocuba e Extensão (Zambézia)</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar o número de agricultores: 1.250 (uma fase) ou 2.500 (duas fases de 1.250).</div>
+    <p>O projecto visa reduzir a pobreza rural e as desigualdades no distrito de Mocuba, reforçando os meios de subsistência, a segurança alimentar e a resiliência climática. Os pequenos agricultores organizam-se em Clubes de Agricultores, com pelo menos 60% de mulheres e 5% de pessoas com deficiência, e recebem formação semanal em agricultura de conservação, adaptação climática, nutrição e gestão de negócios.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão:</p>
+<ul><li>25 campos de demonstração com bombas de água solares e rega;</li><li>500 estruturas de armazenamento pós-colheita, secadores solares, moinhos de milho e bancos de sementes;</li><li>grupos de poupança e crédito, literacia financeira e ligação aos mercados;</li><li>apoio no acesso aos direitos de uso da terra;</li><li>latrinas e pontos de lavagem das mãos;</li><li>fortalecimento de 25 associações da sociedade civil.</li></ul>
+<p>Cada fase do projecto abrange 1.250 pequenos agricultores.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Reducing Rural Poverty and Inequalities in Mocuba District, Zambezia Province</p><p class="f"><strong>Localização:</strong> Província da Zambézia (distrito de Mocuba)</p><p class="f"><strong>Parceiros:</strong> Ministério dos Negócios Estrangeiros da Finlândia</p><p class="f"><strong>Período:</strong> Janeiro de 2025 a Dezembro de 2028</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p33">
+  <button class="row" aria-expanded="false"><span class="t">Futuro Azul – Clubes de Subsistência (Nampula)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>Nos distritos costeiros de Memba e Mossuril, a ADPP promove a restauração dos ecossistemas e a resiliência climática, com foco na conservação dos mangais, na segurança hídrica e na geração de rendimento sustentável. A ADPP lidera as componentes de meios de subsistência, inclusão financeira e restauração comunitária (árvores, mangais e ervas marinhas) e faz o estudo socioeconómico para a nova Área Marinha Protegida.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão a criação de Clubes de Subsistência e o fortalecimento de associações, com pelo menos 50% de mulheres, e a formação em agricultura de conservação, agrofloresta, pesca, ecoturismo, produção de mel, frangos e arroz e pequenos negócios. O projecto apoia também os grupos de poupança e crédito, a produção de fogões poupadores de lenha e a plantação de 50.000 árvores. Beneficia 2.000 famílias e, directamente, 26.310 pescadores.</p>
+<p>Em 2025, o projecto apoiou 1.770 membros em 33 Clubes de Subsistência, restaurou mais de 91 hectares de mangais e plantou 46.000 árvores fruteiras e leguminosas. Dos 64 grupos que preparam planos de negócio, 15 já foram aprovados para financiamento.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Building a Blue Future for Ecosystems and People on the East African Coast</p><p class="f"><strong>Localização:</strong> Província de Nampula (distritos de Memba e Mossuril)</p><p class="f"><strong>Parceiros:</strong> Blue Action Fund; Wildlife Conservation Society (parceiro principal); Ocean5, Biofund, AMA, UEM, MTA e MMAIP; Embaixada de França (co-financiamento)</p><p class="f"><strong>Período:</strong> Julho de 2022 a Julho de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p34">
+  <button class="row" aria-expanded="false"><span class="t">Clube de Produtores Cabo Delgado – Recuperação de Cabo Delgado (RCD)</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>O projecto apoia 1.800 agricultores organizados em 36 Clubes de Produtores, no âmbito da recuperação de Cabo Delgado. Entre as acções está a instalação de sistemas de rega movidos a energia solar.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Producers Club Cabo Delgado (RCD)</p><p class="f"><strong>Localização:</strong> Província de Cabo Delgado</p><p class="f"><strong>Parceiros:</strong> Eni</p><p class="f"><strong>Período:</strong> até Junho de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p35">
+  <button class="row" aria-expanded="false"><span class="t">Farmers&#x27; Clubs Nhamatanda (Sofala)</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados). Indicar também o período do projecto.</div>
+    <p>O projecto apoia 2.250 pequenos agricultores organizados em Clubes de Agricultores no distrito de Nhamatanda.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Farmers' Club Nhamatanda</p><p class="f"><strong>Localização:</strong> Província de Sofala (distrito de Nhamatanda)</p><p class="f"><strong>Parceiros:</strong> UNIDO, WJR, JD, ExxonMobil e PNUD</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p36">
+  <button class="row" aria-expanded="false"><span class="t">MozNorte – Fundo de Desenvolvimento Impulsionado pela Comunidade (Nampula)</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    
+    <p>O programa MozNorte responde à desigualdade e à vulnerabilidade no Norte do país, onde as infra-estruturas deficientes, a baixa produtividade, os impactos climáticos e o pouco investimento rural são grandes desafios. A ADPP lidera um consórcio que implementa as actividades em quatro distritos de Nampula.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Em 79 comunidades, os Comités de Gestão Comunitária definiram e aprovaram 179 projectos escolhidos pelas próprias comunidades. Cada projecto foi atribuído a uma organização comunitária de base, formada pela ADPP em governação local e planeamento participativo. Os projectos incluem 114 poços e sistemas de abastecimento de água, 46 moagens, 21 lojas de adubos, 17 mercearias, 17 embarcações de pesca e kits de energia solar. Até 2025, foram concluídos 84 projectos e 95 estavam em curso, envolvendo directamente 16.948 pessoas.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Management of the Community Driven Development Fund in frames of the Rural Resilience Project in Northern Mozambique (MozNorte)</p><p class="f"><strong>Localização:</strong> Província de Nampula (distritos de Angoche, Larde, Moma e Mossuril)</p><p class="f"><strong>Parceiros:</strong> UNOPS / Fundo Nacional de Desenvolvimento Sustentável (FNDS)</p><p class="f"><strong>Período:</strong> até Maio de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p37">
+  <button class="row" aria-expanded="false"><span class="t">AgroVida – Clube de Produtores Cabo Delgado</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar o período: Dezembro de 2023 a Março de 2029 (folha) ou até Dezembro de 2027 (Short Description).</div>
+    <p>O projecto visa duplicar a produtividade agrícola e os rendimentos dos pequenos produtores, em especial mulheres e jovens, e promover sistemas de produção alimentar sustentáveis e resilientes às alterações climáticas. O consórcio, liderado pela Fundação Aga Khan, abrange 25.000 pequenos produtores em oito distritos de Cabo Delgado.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>A ADPP trabalha com 11.000 produtores (agricultores e pescadores), organizados em clubes de 50 membros. Nos campos de demonstração, aprendem agricultura de conservação, diversificação da produção, armazenamento, processamento, venda e nutrição. Nas zonas costeiras, os pescadores aprendem pesca sustentável, melhor processamento e venda, e hortas familiares. A ADPP é também o parceiro técnico líder da componente de nutrição nos oito distritos, com comités de nutrição em cada clube e programas de rádio.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Strengthening Food Production Systems in Cabo Delgado Mozambique</p><p class="f"><strong>Localização:</strong> Província de Cabo Delgado (distritos de Mecúfi, Pemba, Ancuabe e Metuge)</p><p class="f"><strong>Parceiros:</strong> Embaixada do Reino dos Países Baixos; Fundação Aga Khan (líder do consórcio); GAPI, H2N, MSP e Smart Farming BV</p><p class="f"><strong>Período:</strong> Dezembro de 2023 a Março de 2029</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p38">
+  <button class="row" aria-expanded="false"><span class="t">Centro de Caju e Desenvolvimento Rural – Itoculo (Nampula)</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>Centro de produção de caju e de desenvolvimento rural gerido pela ADPP em Itoculo.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Itoculo Cashew Center</p><p class="f"><strong>Localização:</strong> Itoculo, Província de Nampula</p><p class="f"><strong>Parceiros:</strong> Fundo Nacional de Desenvolvimento Sustentável (FNDS) / SUSTENTA</p><p class="f"><strong>Período:</strong> até Julho de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p39">
+  <button class="row" aria-expanded="false"><span class="t">Alimentando Bem – Clubes de Nutrição Mocuba (Zambézia)</span><span class="badge chk">A confirmar</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note chk"><strong>Nota para o responsável do projecto:</strong> Confirmar a data de término: Outubro de 2027 (Short Description) ou Outubro de 2026 (folha).</div>
+    <p>O projecto reforça a segurança alimentar e a nutrição através da produção alimentar familiar, da sensibilização nutricional e do aumento da resiliência comunitária.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+<p>Entre as principais actividades estão a criação de hortas familiares, a formação das famílias em preparação e conservação de alimentos, campanhas de nutrição e a identificação de casos de desnutrição. Para os clubes de nutrição, o projecto cria 20 hortas de demonstração, 2 unidades avícolas, viveiros de sementes e 20 pequenos viveiros de fruteiras, e instala 20 secadores solares e 500 dispositivos de armazenamento de água.</p>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> ALIMENTANDO BEM: Strengthening food security and nutrition in Mozambique</p><p class="f"><strong>Localização:</strong> Província da Zambézia (distrito de Mocuba)</p><p class="f"><strong>Parceiros:</strong> Humana People to People Italia (HPP Italia), com financiamento do Governo Italiano (8x1000 IRPEF)</p><p class="f"><strong>Período:</strong> Outubro de 2025 a Outubro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></section>
+<section class="sector" id="sec-ajuda-humanitaria" data-col="orange"><h2>Ajuda Humanitária</h2><p class="intro">Moçambique é um dos países mais afectados pelas mudanças climáticas. A ADPP trabalha lado a lado com as comunidades afectadas, os governos locais e os parceiros para responder às necessidades imediatas, garantir a continuidade dos serviços essenciais e investir na preparação e na recuperação, reduzindo o impacto de futuras crises.</p><div class="acc"><div class="proj" id="p40">
+  <button class="row" aria-expanded="false"><span class="t">Resposta de Emergência WASH – Maputo</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>Resposta de emergência em água, saneamento e higiene na Província de Maputo.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Emergency WASH Response (Maputo Prov.)</p><p class="f"><strong>Localização:</strong> Província de Maputo</p><p class="f"><strong>Parceiros:</strong> Organização Internacional para as Migrações (OIM)</p><p class="f"><strong>Período:</strong> até Maio de 2026</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p41">
+  <button class="row" aria-expanded="false"><span class="t">Resposta de Emergência em Gaza</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados).</div>
+    <p>Resposta de emergência na Província de Gaza, que beneficia 4.000 pessoas.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Resposta de Emergência em Gaza</p><p class="f"><strong>Localização:</strong> Província de Gaza</p><p class="f"><strong>Parceiros:</strong> Fundação Aga Khan</p><p class="f"><strong>Período:</strong> até Fevereiro de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div>
+<div class="proj" id="p42">
+  <button class="row" aria-expanded="false"><span class="t">Capacitação em Assistência Humanitária</span><span class="badge inc">Falta informação</span><span class="chev"></span></button>
+  <div class="body" hidden>
+    <div class="note inc"><strong>Nota para o responsável do projecto:</strong> Descrição incompleta: as referências disponíveis não têm mais informação sobre este projecto. Por favor, envie uma descrição (objectivo, principais actividades, beneficiários e resultados). Indicar também a localização.</div>
+    <p>Projecto de capacitação em assistência humanitária.</p>
+<div class="photo" aria-label="Espaço reservado para fotografia"><span>Espaço para fotografia do projecto</span></div>
+    <div class="ficha"><p class="f"><strong>Nome completo do Projecto:</strong> Capacity Building in Human Assistance</p><p class="f"><strong>Parceiros:</strong> Islamic Relief Worldwide</p><p class="f"><strong>Período:</strong> até Abril de 2027</p></div>
+    <div class="actions"><button class="copy">Copiar texto desta ficha</button><span class="msg" role="status"></span></div>
+  </div>
+</div></div></section>
+</main>
+<footer>Versão de revisão interna da página Projectos.</footer>
+<script>
+(function(){
+  var sectors=[].slice.call(document.querySelectorAll('section.sector'));
+  var links=[].slice.call(document.querySelectorAll('nav.sectorbar a'));
+  var bar=document.querySelector('.sectorbar');
+  function mark(id){
+    links.forEach(function(a){
+      if('sec-'+a.dataset.s===id){ a.setAttribute('aria-current','page');
+        try{ var l=a.offsetLeft-bar.offsetLeft; if(l<bar.scrollLeft||l+a.offsetWidth>bar.scrollLeft+bar.clientWidth) bar.scrollLeft=l-12; }catch(e){} }
+      else a.removeAttribute('aria-current');
+    });
+  }
+  function go(name,smooth){
+    var s=document.getElementById('sec-'+name); if(!s) return;
+    s.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'}); mark(s.id);
+  }
+  links.forEach(function(a){
+    a.addEventListener('click',function(ev){ ev.preventDefault(); go(a.dataset.s,true); });
+  });
+  var ticking=false;
+  function spy(){
+    ticking=false;
+    var line=bar.getBoundingClientRect().bottom+80, cur=sectors[0];
+    sectors.forEach(function(s){ if(s.getBoundingClientRect().top<=line) cur=s; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2) cur=sectors[sectors.length-1];
+    mark(cur.id);
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(spy);} },{passive:true});
+  window.addEventListener('resize',spy);
+  var h0=(location.hash||'').slice(1);
+  if(h0 && document.getElementById('sec-'+h0)){ setTimeout(function(){go(h0,false);},50); } else spy();
+  window.addEventListener('hashchange',function(){ var h=(location.hash||'').slice(1); if(h) go(h,true); });
+
+  function toggle(btn,panel){
+    var open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open)); panel.hidden=open;
+  }
+  document.querySelectorAll('.row').forEach(function(b){ b.addEventListener('click',function(){ toggle(b,b.nextElementSibling); }); });
+  document.querySelectorAll('button.cathead').forEach(function(b){ b.addEventListener('click',function(){ toggle(b,b.nextElementSibling); }); });
+
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var proj=b.closest('.proj'), body=proj.querySelector('.body');
+      var parts=[proj.querySelector('.row .t').textContent];
+      body.querySelectorAll(':scope > p, :scope > ul, .ficha .f').forEach(function(el){
+        if(el.tagName==='UL'){ el.querySelectorAll('li').forEach(function(li){parts.push('- '+li.textContent);}); }
+        else parts.push(el.textContent);
+      });
+      var txt=parts.join('\n\n'), msg=proj.querySelector('.msg');
+      function fallback(){
+        try{var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+          var ok=document.execCommand('copy');document.body.removeChild(ta);msg.textContent=ok?'Texto copiado.':'Não foi possível copiar; seleccione o texto manualmente.';}
+        catch(e){msg.textContent='Não foi possível copiar; seleccione o texto manualmente.';}
+      }
+      try{ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){msg.textContent='Texto copiado.';},fallback);} else fallback(); }
+      catch(e){ fallback(); }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
